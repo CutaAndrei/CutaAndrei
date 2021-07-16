@@ -1,9 +1,10 @@
-									 
+	//  module PC_ip_monitor(PC_bus.in iin);  
 `ifndef PC_IP_MONITOR_SV
 `define PC_IP_MONITOR_SV 
+
 class PC_ip_monitor; 
-    virtual PC  ports;
-	function new (virtual PC ports);
+    virtual PC_bus  ports;
+	function new (virtual PC_bus ports);
     begin  
       this.ports = ports;
     end
@@ -25,3 +26,4 @@ class PC_ip_monitor;
 
  endclass
  `endif		   
+	//endmodule

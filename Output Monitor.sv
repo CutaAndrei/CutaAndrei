@@ -1,12 +1,14 @@
+
 `ifndef PC_OP_MONITOR_SV
 `define PC_OP_MONITOR_SV
-   
+ //  module monitor_out(PC_bus.out iout
+//);	  
 class PC_op_monitor;
   
  
-  virtual PC       ports;
+  virtual PC_bus       ports;
  
-function new (virtual PC ports);
+function new (virtual PC_bus ports);
 begin
 	
   this.ports = ports;
@@ -24,8 +26,7 @@ begin
   				 end
       		end
    		 end
- endtask
-
- endclass
-  
-  `endif
+ endtask  
+ endclass 
+ `endif	
+ //  endmodule
