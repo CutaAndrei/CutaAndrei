@@ -1,0 +1,33 @@
+-get name, price, bool hasSale, salePercent, URL of the product
+-get date each time new data is added
+-if the item has sale compare it to previous dates where it didnt have (calcul cu salePercent)
+-check if product is cheaper anywhere else, if yes send notification (probably mail)
+-run the app automatically every 2 weeks (maybe when the pc starts?)
+-store data inside a database 
+-once enough data is stored publish it to the internet
+
+Product - id					// prima data cand un product nou va fi cautat, se vor insera aici doar la prima rulare
+		- name( or procut code)  //daca un nume de pe url nu exista, se insereaza entitate
+		- Seller id
+		
+Seller - id					// entitati adaugate manual
+	   - url link
+	   - company name
+	
+ProductsOnPage - id 			// cand se insereaza in product, se insereaza si aici, aici vor fi afisate 
+			   - product id			//toate produsele de la un link
+			   - Seller id
+			   
+SearchResults - id      		// la fiecare cautare se insereaza in acest tabel
+			  - product id 
+			  - date of search
+			  - price
+			  - hasSale
+			  - salePercent
+			
+	Logica:
+	1.Daca ProductsOnPage nu contine un produs, al carui nume == numele gasit => insereaza in products si in ProductsOnPage
+	2.Insereaza search resultul in SearchResults
+	3.Daca ((x=> (x)SearchResults.Product.Seller=="Altex"  si (x)SearchResults.Product.Name == (y)alt SearchResults 
+																si (x)SearchResults.Price < (y).Price) 
+			=> send notification
